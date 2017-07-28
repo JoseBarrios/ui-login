@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.1/webcomponents-lite.js'></script>
+    <link rel='import', href='../element/index.html' async>
+    <style>
+      ui-login {
+        --ui-login-container-bg-color: lightGray;
+        --ui-login-container-border-color: gray;
+
+        --ui-login-input-border-color: gray;
+        --ui-login-input-text-color: black;
+        --ui-login-input-bg-color: white;
+
+        --ui-login-button-color: #ff9933;
+        --ui-login-button-hover-color: #ff9933;
+        --ui-login-button-text-color: white;
+        --ui-login-button-text-hover-color: white;
+        --ui-login-button-border-color: gray;
+        --ui-login-button-border-hover-color: gray;
+
+        --ui-login-text-color: gray;
+        --ui-login-text-error-color: #B22222;
+
+        --ui-login-link-color: gray;
+        --ui-login-link-hover-color: gray;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="width:100%;height:100%;position:absolute;background-color:white;">
+    <ui-login data="{hello:'there'}"></ui-login>
+    </div>
+  </body>
+</html>
