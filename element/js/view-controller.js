@@ -7,16 +7,19 @@ class UILoginViewController extends HTMLElement{
 
   constructor(){
     super();
-    //let shadowRoot = this.attachShadow({mode: 'open'});
-    view = document.importNode(view.content, true);
-    this.appendChild(view);
   }
 
   ///STANDARD
   connectedCallback() {
-    console.log('connected', this);
+    console.log('connected');
     //GET DOM STUFF HERE
+    //let shadowRoot = this.attachShadow({mode: 'open'});
+    //shadowRoot.appendChild(view);
+
+    view = document.importNode(view.content, true);
+    this.appendChild(view);
   }
+
 
   disconnectedCallback() {
     console.log('disconnected');
