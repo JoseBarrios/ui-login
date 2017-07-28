@@ -5,8 +5,7 @@ class UILoginViewController extends HTMLElement{
   constructor(){
     super();
     let shadowRoot = this.attachShadow({mode: 'open'});
-    const doc = document._currentScript || document.currentScript;
-    let view = doc.ownerDocument.querySelector('#ui-login-view');
+    let view = document.currentScript.ownerDocument.querySelector('#ui-login-view');
     view = document.importNode(view.content, true);
     shadowRoot.appendChild(view);
   }
