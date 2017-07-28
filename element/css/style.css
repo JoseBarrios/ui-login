@@ -2,7 +2,7 @@
 
 /*** Login ***/
 
-:host {
+html {
   --ui-login-container-bg-color: #2d343c;
   --ui-login-container-border-color: #2d343c;
 

@@ -14,6 +14,7 @@ class UILoginViewController extends HTMLElement{
     console.log('connected');
     //GET DOM STUFF HERE
     //let shadowRoot = this.attachShadow({mode: 'open'});
+    //view = document.importNode(view.content, true);
     //shadowRoot.appendChild(view);
 
     view = document.importNode(view.content, true);
