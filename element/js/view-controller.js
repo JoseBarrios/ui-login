@@ -7,9 +7,9 @@ class UILoginViewController extends HTMLElement{
 
   constructor(){
     super();
-    let shadowRoot = this.attachShadow({mode: 'open'});
+    //let shadowRoot = this.attachShadow({mode: 'open'});
     view = document.importNode(view.content, true);
-    shadowRoot.appendChild(view);
+    this.appendChild(view);
   }
 
   ///STANDARD
