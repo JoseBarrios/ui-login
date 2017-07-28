@@ -1,11 +1,13 @@
 'use strict'
 
+const uiLoginDoc = document._currentScript || document.currentScript;
+let view = uiLoginDoc.ownerDocument.querySelector('#ui-login-view');
+
 class UILoginViewController extends HTMLElement{
 
   constructor(){
     super();
     let shadowRoot = this.attachShadow({mode: 'open'});
-    let view = document.currentScript.ownerDocument.querySelector('#ui-login-view');
     view = document.importNode(view.content, true);
     shadowRoot.appendChild(view);
   }
