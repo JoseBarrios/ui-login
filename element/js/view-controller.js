@@ -114,7 +114,7 @@ class UILoginViewController extends HTMLElement{
     this.setAttribute('error', value);
     this.$error.innerHTML = value;
     this.$error.style.visibility = 'visible';
-    this.$error.classList.add('error');
+    this.$error.classList.add('attention-animation');
   }
 }
 

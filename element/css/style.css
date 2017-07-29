@@ -39,8 +39,15 @@ html {
   min-width: 300px;
   max-width: 450px;
 
-  min-height: 260px;
-  max-height: 275px;
+  height: 300px;
+}
+
+.container img {
+  display:block;
+  margin:auto;
+  width:150px;
+  padding:0px;
+  padding-top:1em;
 }
 
 
@@ -74,7 +81,6 @@ html {
   z-index: 2;
 }
 .form-signin input[type="email"] {
-  margin-top:2em;
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
@@ -125,7 +131,7 @@ html {
   visibility: hidden;
 }
 
-.error {
+.attention-animation {
   visibility: visible;
   animation: attention 300ms linear both;
   animation-iteration-count: 2;
