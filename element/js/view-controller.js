@@ -26,8 +26,8 @@ class UILoginViewController extends HTMLElement{
 
     this.$form = this.querySelector('#form');
     this.$csrf = this.querySelector('#csrf');
-    this.$registrationLink = this.querySelector('#registrationLink');
-    this.$passwordResetLink = this.querySelector('#passwordResetLink');
+    this.$registration = this.querySelector('#registration');
+    this.$passwordReset = this.querySelector('#passwordReset');
     this.$error = this.querySelector('#error');
 
     this.addEvents();
@@ -53,7 +53,14 @@ class UILoginViewController extends HTMLElement{
 
   attributeChangedCallback(attributeName, oldValue, newValue) {
     console.log('attributeChanged', name, oldValue, newValue);
-    this[attributeName] = newValue;
+    switch(attributeName){
+        case "password-reset":
+          this['passwordReset'] = newValue;
+          break;
+
+        default:
+          this[attributeName] = newValue;
+    }
   }
 
   adoptedCallback(){
@@ -81,13 +88,15 @@ class UILoginViewController extends HTMLElement{
     if(this._registration === value) return;
     this._registration = value;
     this.setAttribute('registration', value);
+    this.$registration.href = value;
   }
 
   get passwordReset(){ return this._passwordReset; }
   set passwordReset(value){
     if(this._passwordReset === value) return;
     this._passwordReset = value;
-    this.setAttribute('passwordReset', value);
+    this.setAttribute('password-reset', value);
+    this.$passwordReset.href = value;
   }
 
   get csrf(){ return this._csrf; }
