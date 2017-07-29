@@ -6,7 +6,7 @@ let view = uiLoginDoc.ownerDocument.querySelector('#ui-login-view');
 class UILoginViewController extends HTMLElement{
 
   static get observedAttributes() {
-    return ["action", "method", "registration", "password-reset", "error"];
+    return ["action", "method", "registration", "password-reset", "csrf", "error"];
   }
 
   constructor(){
@@ -95,6 +95,7 @@ class UILoginViewController extends HTMLElement{
     if(this._csrf === value) return;
     this._csrf = value;
     this.setAttribute('csrf', value);
+    this.$csrf.value = value;
   }
 
   get error(){ return this._error; }
