@@ -103,7 +103,7 @@ class UILoginViewController extends HTMLElement{
     if(this._error === value) return;
     this._error = value;
     this.setAttribute('error', value);
-    this.$error.visibility = 'visible';
+    this.$error.style.visibility = 'visible';
   }
 }
 
