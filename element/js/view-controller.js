@@ -16,6 +16,7 @@ class UILoginViewController extends HTMLElement{
     this._registration = null;
     this._passwordReset = null;
     this._error = null;
+    this._csrf = null;
  }
 
   connectedCallback() {
@@ -87,6 +88,13 @@ class UILoginViewController extends HTMLElement{
     if(this._passwordReset === value) return;
     this._passwordReset = value;
     this.setAttribute('passwordReset', value);
+  }
+
+  get csrf(){ return this._csrf; }
+  set csrf(value){
+    if(this._csrf === value) return;
+    this._csrf = value;
+    this.setAttribute('csrf', value);
   }
 
   get error(){ return this._error; }
