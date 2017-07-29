@@ -123,7 +123,7 @@ html {
   font-size:0.8em;
   color: var(--ui-login-text-error-color);
   font-weight:500;
-  /*display:none;*/
+  visibility:hidden;
 }
 
 .form-signin .form-control{
