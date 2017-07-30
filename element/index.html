@@ -1,30 +1,178 @@
-	<!-- Bootstrap core CSS -->
-	<link href="./css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<link href="./css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-	<!-- Custom styles for this template -->
-  <link href="./css/style.css" rel="stylesheet">
-
-	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-	<!--[if lt IE 9]><script src="/element/js/ie8-responsive-file-warning.js"></script><![endif]-->
-	<script src="./js/ie-emulation-modes-warning.js"></script>
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<template id="ui-login-view">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :host {
+      --ui-login-container-bg-color: #2d343c;
+      --ui-login-container-border-color: #2d343c;
+
+      --ui-login-input-border-color: #ccc;
+      --ui-login-input-text-color: #fff;
+      --ui-login-input-bg-color: #2d343c;
+
+      --ui-login-button-bg-color: #2d343c;
+      --ui-login-button-hover-color: #ff9933;
+      --ui-login-button-text-color: #fff;
+      --ui-login-button-text-hover-color: #fff;
+      --ui-login-button-border-color: #ff9933;
+      --ui-login-button-border-hover-color: #ff9933;
+
+      --ui-login-text-color: #ccc;
+      --ui-login-text-error-color: crimson;
+
+      --ui-login-link-color: #ccc;
+      --ui-login-link-hover-color: #fff;
+    }
+
+    .login-container{
+      background: var(--ui-login-container-bg-color);
+      border:1px var(--ui-login-container-border-color) solid;
+      border-radius: 10px;
+
+      margin: auto;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
+
+      min-width: 300px;
+      max-width: 450px;
+      height: 300px;
+    }
+
+    .login-container img {
+      display:block;
+      margin:auto;
+      height:66px;
+      padding:0px;
+      padding-top:1em;
+    }
 
 
-<template id="ui-login-view">
+    .login{
+      font-family: 'Lato', sans-serif;
+      font-size:1em;
+      font-weight: 300;
+    }
 
-	<div class="container">
+    .form-signin {
+      max-width: 330px;
+      padding: 15px;
+      margin: auto;
+      text-align:center;
+    }
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+      margin-bottom: 10px;
+    }
+    .form-signin .form-control {
+      position: relative;
+      height: auto;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 10px;
+      font-size: 1em;
+    }
+    .form-signin .form-control:focus {
+      z-index: 2;
+    }
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      background: var(--ui-login-input-bg-color);
+    }
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      background: var(--ui-login-input-bg-color);
+    }
+
+    .login .btn[type="submit"],
+    .login .submit-login{
+      background: var(--ui-login-button-bg-color);
+      font-weight: 300;
+      text-transform: uppercase;
+      border:1px var(--ui-login-button-border-color) solid;
+      margin-bottom:15px;
+      color: var(--ui-login-button-text-color);
+    }
+
+    .login .btn[type="submit"]:hover,
+    .login .submit-login:hover{
+      background: var(--ui-login-button-hover-color);
+      color: var(--ui-login-button-text-hover-color);
+    }
+
+
+    .form-signin a {
+      color: var(--ui-login-link-color);
+      cursor:pointer;
+      text-decoration: none;
+    }
+
+    .form-signin a:hover {
+      color: var(--ui-login-link-hover-color)
+    }
+
+    .form-signin .footer {
+      font-size:0.8em;
+      margin-bottom:0.5em;
+      color: var(--ui-login-text-color);
+    }
+
+    #error {
+      font-size:0.8em;
+      color: var(--ui-login-text-error-color);
+      font-weight:800;
+      visibility: hidden;
+      margin-bottom:1em;
+    }
+
+    .attention-animation {
+      visibility: visible;
+      animation: attention 300ms linear both;
+      animation-iteration-count: 2;
+    }
+
+    @keyframes attention {
+      0.00% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1); }
+      11.11% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.725, 0, 1, 1); }
+      22.22% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 10.113, 0, 1, 1); }
+      33.33% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 12, 0, 2, 1); }
+      44.44% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 4.08, 0, 2, 1); }
+      55.56% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -3.84, 0, 2, 1); }
+      66.67% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -12, 0, 3, 1); }
+      77.78% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -10.275, 0, 3, 1); }
+      88.89% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.887, 0, 3, 1); }
+      100.00% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 3, 1); }
+    }
+
+    .form-signin .form-control{
+      background: var(--ui-login-bg-color);
+      border-color: var(--ui-login-input-border-color);
+      color: var(--ui-login-input-text-color)
+    }
+  </style>
+
+
+
+
+
+  <div class="login-container">
     <img src="https://raw.githubusercontent.com/Cognilab/assets/master/images/logos/logo-horizontal-medium-white.png">
+    <!--<img class="logo">-->
     </img>
-		<div class="login form-signin">
+    <div class="login form-signin">
       <form id="form" class="form-signin", method="POST">
         <input id="csrf", type="hidden" name="_csrf" class="form-control" value="">
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -42,11 +190,9 @@
         </p>
       </div>
     </form>
-	</div>
+  </div>
 
 </template>
 
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="./js/ie10-viewport-bug-workaround.js" type="text/javascript"></script>
 <!-- CUSTOM ELEMENT CONTROLLER -->
-<script src="./js/view-controller.js" type="text/javascript"> </script>
+<script src="./js/ui-login-view-controller.js" type="text/javascript"> </script>
