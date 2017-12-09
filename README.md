@@ -25,8 +25,8 @@ node 8.9.3-LTS
     // At this point we are guaranteed that all required polyfills have loaded,
     // all HTML imports have loaded, and all defined custom elements have upgraded
     let element = document.querySelector('ui-login');
-    console.assert(element instanceof UILogin);  // 👍
-    element.someAPI(); // 👍
+    console.assert(element instanceof UILoginViewController);
+    element.logo = 'http://some.image.com/url';
   });
 </script>
 
@@ -38,20 +38,20 @@ ui-login {
     --ui-login-font-family: [customize];
     --ui-login-container-bg-color: [customize];
     --ui-login-container-border-color: [customize];
-    --ui-login-input-border-color: [customize]; 
-    --ui-login-input-text-color: [customize]; 
-    --ui-login-input-bg-color: [customize]; 
-    --ui-login-button-bg-color: [customize]; 
+    --ui-login-input-border-color: [customize];
+    --ui-login-input-text-color: [customize];
+    --ui-login-input-bg-color: [customize];
+    --ui-login-button-bg-color: [customize];
     --ui-login-button-hover-color: [customize];
     --ui-login-button-text-color: [customize];
-    --ui-login-button-text-hover-color: [customize]; 
+    --ui-login-button-text-hover-color: [customize];
     --ui-login-button-border-color: [customize];
     --ui-login-button-border-hover-color: [customize];
     --ui-login-text-color: [customize];
     --ui-login-text-error-color: [customize];
     --ui-login-link-color: [customize];
     --ui-login-link-hover-color: [customize];
-}   
+}
 ```
 
 

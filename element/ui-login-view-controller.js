@@ -1,8 +1,8 @@
 'use strict'
 
 //Firefox requires these to be outside of class
-const uiLoginDoc = document._currentScript || document.currentScript;
-const uiLoginTemplate = uiLoginDoc.ownerDocument.querySelector('#ui-login-view');
+let uiLoginDoc = document._currentScript || document.currentScript;
+let uiLoginTemplate = uiLoginDoc.ownerDocument.querySelector('#ui-login-view');
 
 class UILoginViewController extends HTMLElement{
 
@@ -19,17 +19,17 @@ class UILoginViewController extends HTMLElement{
     this._error = null;
     this._csrf = null;
 
-    const view = document.importNode(uiLoginTemplate.content, true);
-    this.shadowRoot = this.attachShadow({mode: 'open'});
-    this.shadowRoot.appendChild(view);
+		const view = document.importNode(uiLoginTemplate.content, true);
+		this.shadowRoot = this.attachShadow({mode: 'open'});
+		this.shadowRoot.appendChild(view);
  }
 
   connectedCallback() {
-    this.$passwordReset = this.shadowRoot.querySelector('#passwordReset');
-    this.$error = this.shadowRoot.querySelector('#error');
-    this.$form = this.shadowRoot.querySelector('#form');
-    this.$logo = this.shadowRoot.querySelector('#logo');
-    this.$csrf = this.shadowRoot.querySelector('#csrf');
+		this.$passwordReset = this.shadowRoot.querySelector('#passwordReset');
+		this.$error = this.shadowRoot.querySelector('#error');
+		this.$form = this.shadowRoot.querySelector('#form');
+		this.$logo = this.shadowRoot.querySelector('#logo');
+		this.$csrf = this.shadowRoot.querySelector('#csrf');
 
     this.addEvents();
     this._updateRendering();

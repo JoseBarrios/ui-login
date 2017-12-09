@@ -2,17 +2,17 @@
 <html>
 
   <head>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.4/webcomponents-lite.js'></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.20/webcomponents-loader.js"></script>
     <link rel='import', href='../element/index.html'>
     <style>
       ui-login {
         --ui-login-button-bg-color: #ff9933;
 				--ui-login-button-border-color: #ff9933;
 
-				--ui-login-button-bg-color-hover: #78c032;
-				--ui-login-button-border-color-hover: #78c032;
-				--ui-login-link-hover-color: #ff9933;
+				--ui-login-button-bg-color-hover: #409ad7;
+				--ui-login-button-border-color-hover: #409ad7;
 
+				--ui-login-link-hover-color: #ff9933;
 				--ui-login-text-color: #fff;
       }
     </style>
@@ -26,4 +26,16 @@
 
     </div>
   </body>
+
+	<!-- Interact with the upgraded element -->
+	<script>
+		window.addEventListener('WebComponentsReady', function() {
+			// At this point we are guaranteed that all required polyfills have loaded,
+			// all HTML imports have loaded, and all defined custom elements have upgraded
+			let element = document.querySelector('ui-login');
+			console.assert(element instanceof UILoginViewController);
+			element.error = "This is an error message";
+		});
+	</script>
+
 </html>
