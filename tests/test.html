@@ -4,16 +4,29 @@
   <head>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.20/webcomponents-loader.js"></script>
     <link rel='import', href='../element/index.html'>
+
+		<!--FOR FIREFOX, YOU HAVE TO RE-ADD THE VARIABLES IN THE PARENT DOCUMENT-->
     <style>
       ui-login {
-        --ui-login-button-bg-color: #ff9933;
+				--ui-login-font-family: 'Roboto', sans-serif;
+				--ui-login-container-bg-color: #fff;
+				--ui-login-container-border-color: gray;
+
+				--ui-login-input-bg-color: #fff;
+				--ui-login-input-border-color: darkGray;
+
+				--ui-login-button-bg-color: #ff9933;
 				--ui-login-button-border-color: #ff9933;
 
 				--ui-login-button-bg-color-hover: #409ad7;
 				--ui-login-button-border-color-hover: #409ad7;
 
-				--ui-login-link-hover-color: #ff9933;
-				--ui-login-text-color: #fff;
+				--ui-login-button-text-color: #fff;
+
+				--ui-login-text-color: #757575;
+				--ui-login-link-color: #757575;
+				--ui-login-link-hover-color: #409ad7;
+				--ui-login-text-error-color: #CD5C5C;
       }
     </style>
 

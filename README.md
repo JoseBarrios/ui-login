@@ -53,6 +53,7 @@ ui-login {
     --ui-login-link-hover-color: [customize];
 }
 ```
+* In Firefox, due to lack of support for ShadyCSS, the CSS variables need to be assigned in the host document (where you use the ui-login element)
 
 
 ### Tests:
