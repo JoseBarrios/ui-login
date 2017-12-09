@@ -3,26 +3,20 @@
   <style>
     :host {
 			--ui-login-font-family: 'Roboto', sans-serif;
-      --ui-login-container-bg-color: #2d343c;
-      --ui-login-container-border-color: #2d343c;
+			--ui-login-container-border-color: gray;
 
-      --ui-login-input-border-color: #ccc;
-      --ui-login-input-text-color: #fff;
-      --ui-login-input-bg-color: #2d343c;
+			--ui-login-input-bg-color: #fff;
+			--ui-login-input-border-color: darkGray;
 
-      --ui-login-button-bg-color: #2d343c;
-      --ui-login-button-hover-color: #ff9933;
-      --ui-login-button-text-color: #fff;
-      --ui-login-button-text-hover-color: #fff;
-      --ui-login-button-border-color: #ff9933;
-      --ui-login-button-border-hover-color: #ff9933;
+			--ui-login-button-bg-color: #409ad7;
+			--ui-login-button-border-color: #409ad7;
+			--ui-login-button-text-color: #fff;
 
-      --ui-login-text-color: #ccc;
-      --ui-login-text-error-color: crimson;
-
-      --ui-login-link-color: #ccc;
-      --ui-login-link-hover-color: #fff;
-    }
+			--ui-login-text-color: black;
+			--ui-login-link-color: black;
+			--ui-login-link-hover-color: #409ad7;
+			--ui-login-text-error-color: #CD5C5C;
+		}
 
     .container{
       background-color: var(--ui-login-container-bg-color);
@@ -110,6 +104,7 @@
 			width:250px;
 			border-radius:6px;
 			font-size:1.1em;
+      cursor:pointer;
     }
 
     #error {
@@ -153,13 +148,9 @@
 				<input id="csrf" type="hidden" name="_csrf" class="form-control" value="">
         <button id="loginButton" type="submit" class="login-button">Login</button>
         <p class="footer">
-          <!--<a id="registration"> Create an account </a>-->
-          <!--or-->
           <a id="passwordReset" class="password-reset"> forgot password? </a>
         </p>
-        <p id="error">
-          Incorrect email / password
-        </p>
+        <p id="error"/>
       </div>
     </form>
   </div>

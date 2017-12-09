@@ -14,7 +14,7 @@ node 8.9.3-LTS
 <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.20/webcomponents-loader.js"></script>
 
 <!-- Load a custom element definition via HTMLImports -->
-<link rel="import" href="elements/ui-login/index.html">
+<link rel="import" href="/ui-login/element/index.html">
 
 <!-- Use the custom element -->
 <ui-login logo="image-url.png" action="url/action" password-reset="url/password-reset" csrf="secret"/>
