@@ -1,7 +1,7 @@
 <template id="ui-login-view">
 
   <style>
-    :host {
+    * {
 			--ui-login-font-family: 'Roboto', sans-serif;
 			--ui-login-container-bg-color: #fff;
 			--ui-login-container-border-color: gray;
@@ -10,7 +10,13 @@
 			--ui-login-input-border-color: darkGray;
 
 			--ui-login-button-bg-color: #409ad7;
+			--ui-login-button-bg-color-hover: #78c032;
+
 			--ui-login-button-border-color: #409ad7;
+			--ui-login-button-border-color-hover: #409ad7;
+			--ui-login-button-border-color-hover: #78c032;
+
+
 			--ui-login-button-text-color: #fff;
 
 			--ui-login-text-color: #757575;
@@ -21,6 +27,7 @@
 
     .container{
       background-color: var(--ui-login-container-bg-color);
+      background-color: #fff;
       border:1px var(--ui-login-container-border-color) solid;
 			font-family: var(--ui-login-font-family) !important;
       border-radius: 10px;
@@ -107,6 +114,11 @@
 			font-size:1.1em;
       cursor:pointer;
     }
+
+		.login-button:hover {
+			background-color: var(--ui-login-button-bg-color-hover);
+			border-color: var(--ui-login-button-border-color-hover);
+		}
 
     #error {
       font-size:0.8em;

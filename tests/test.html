@@ -8,12 +8,18 @@
       ui-login {
         --ui-login-button-bg-color: #ff9933;
 				--ui-login-button-border-color: #ff9933;
+
+				--ui-login-button-bg-color-hover: #78c032;
+				--ui-login-button-border-color-hover: #78c032;
+				--ui-login-link-hover-color: #ff9933;
+
+				--ui-login-text-color: #fff;
       }
     </style>
 
   </head>
 
-  <body style="padding:0px; margin:0px">
+  <body style="padding:0px; margin:0px; background-color:lightGray">
     <div style="margin-top:25vh;width:100%;height:50%;position:fixed;z-index:1">
       <ui-login logo="https://cdn.filestackcontent.com/UHsEqdTSo6RNaLcObgnA" action="http://localhost:3000/user/login" password-reset="/user/password-reset" csrf="1234" error=""></ui-login>
     </div>
