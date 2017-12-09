@@ -3,20 +3,22 @@
 
   <head>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.4/webcomponents-lite.js'></script>
-    <link rel='import', href='../node_modules/@josebarrios/ui-organization-card/element/index.html'>
-    <link rel='import', href='../node_modules/@josebarrios/ui-job-posting-card/element/index.html'>
     <link rel='import', href='../element/index.html'>
     <style>
       ui-login {
         --ui-login-container-bg-color: #fdfdfd;
         --ui-login-container-border-color: gray;
+
         --ui-login-input-bg-color: #fff;
         --ui-login-input-border-color: darkGray;
-        --ui-login-button-bg-color: #ff9933;
+
+        --ui-login-button-bg-color: #409ad7;
+				--ui-login-button-border-color: #409ad7;
         --ui-login-button-text-color: #fff;
+
         --ui-login-text-color: black;
         --ui-login-link-color: black;
-        --ui-login-link-hover-color: #ff9933;
+        --ui-login-link-hover-color: #409ad7;
         --ui-login-text-error-color: #CD5C5C;
       }
     </style>
@@ -24,33 +26,9 @@
   </head>
 
   <body style="padding:0px; margin:0px">
-    <div style="width:100%;height:100%;position:fixed;z-index:1">
-      <ui-login action="http://localhost:3000/user/login" method="post" registration="http://localhost:3000/user/create" password-reset="http://localhost:3000/user/create" error="ERROR HERE" csrf="1234"></ui-login>
+    <div style="margin-top:25vh;width:100%;height:50%;position:fixed;z-index:1">
+      <ui-login logo="https://cdn.filestackcontent.com/UHsEqdTSo6RNaLcObgnA" action="http://localhost:3000/user/login" password-reset="/user/password-reset" csrf="1234" error=""></ui-login>
     </div>
-
-
-    <!--<div style="width:100%;height:100%;filter:blur(5px);background-color:gray;opacity:0.5">-->
-      <!--<ui-organization-card model='{"image":"https://tippingpoint.org/-/img/facebook-meta-tp-logo.png", "name":"Cognilab", "disambiguatingDescription": "Other Company", "address":{ "addressLocality":"Victoria", "addressRegion": "BC"}, "description":"Some description of the company goes here" }'></ui-organization-card>-->
-      <!--<ui-job-posting-card></ui-job-posting-card>-->
-      <!--<ui-organization-card model='{"image":"https://tippingpoint.org/-/img/facebook-meta-tp-logo.png", "name":"Cognilab", "disambiguatingDescription": "Other Company", "address":{ "addressLocality":"Victoria", "addressRegion": "BC"}, "description":"Some description of the company goes here" }'></ui-organization-card>-->
-      <!--<ui-job-posting-card></ui-job-posting-card>-->
-      <!--<ui-organization-card model='{"image":"https://tippingpoint.org/-/img/facebook-meta-tp-logo.png", "name":"Cognilab", "disambiguatingDescription": "Other Company", "address":{ "addressLocality":"Victoria", "addressRegion": "BC"}, "description":"Some description of the company goes here" }'></ui-organization-card>-->
-      <!--<ui-job-posting-card></ui-job-posting-card>-->
-      <!--<ui-organization-card model='{"image":"https://tippingpoint.org/-/img/facebook-meta-tp-logo.png", "name":"Cognilab", "disambiguatingDescription": "Other Company", "address":{ "addressLocality":"Victoria", "addressRegion": "BC"}, "description":"Some description of the company goes here" }'></ui-organization-card>-->
-      <!--<ui-job-posting-card></ui-job-posting-card>-->
-      <!--<ui-organization-card model='{"image":"https://tippingpoint.org/-/img/facebook-meta-tp-logo.png", "name":"Cognilab", "disambiguatingDescription": "Other Company", "address":{ "addressLocality":"Victoria", "addressRegion": "BC"}, "description":"Some description of the company goes here" }'></ui-organization-card>-->
-      <!--<ui-job-posting-card></ui-job-posting-card>-->
-      <!--<ui-organization-card model='{"image":"https://tippingpoint.org/-/img/facebook-meta-tp-logo.png", "name":"Cognilab", "disambiguatingDescription": "Other Company", "address":{ "addressLocality":"Victoria", "addressRegion": "BC"}, "description":"Some description of the company goes here" }'></ui-organization-card>-->
-      <!--<ui-job-posting-card></ui-job-posting-card>-->
-      <!--<ui-organization-card model='{"image":"https://tippingpoint.org/-/img/facebook-meta-tp-logo.png", "name":"Cognilab", "disambiguatingDescription": "Other Company", "address":{ "addressLocality":"Victoria", "addressRegion": "BC"}, "description":"Some description of the company goes here" }'></ui-organization-card>-->
-      <!--<ui-job-posting-card></ui-job-posting-card>-->
-      <!--<ui-organization-card model='{"image":"https://tippingpoint.org/-/img/facebook-meta-tp-logo.png", "name":"Cognilab", "disambiguatingDescription": "Other Company", "address":{ "addressLocality":"Victoria", "addressRegion": "BC"}, "description":"Some description of the company goes here" }'></ui-organization-card>-->
-      <!--<ui-job-posting-card></ui-job-posting-card>-->
-      <!--<ui-organization-card model='{"image":"https://tippingpoint.org/-/img/facebook-meta-tp-logo.png", "name":"Cognilab", "disambiguatingDescription": "Other Company", "address":{ "addressLocality":"Victoria", "addressRegion": "BC"}, "description":"Some description of the company goes here" }'></ui-organization-card>-->
-      <!--<ui-job-posting-card></ui-job-posting-card>-->
-      <!--<ui-organization-card model='{"image":"https://tippingpoint.org/-/img/facebook-meta-tp-logo.png", "name":"Cognilab", "disambiguatingDescription": "Other Company", "address":{ "addressLocality":"Victoria", "addressRegion": "BC"}, "description":"Some description of the company goes here" }'></ui-organization-card>-->
-      <!--<ui-job-posting-card></ui-job-posting-card>-->
-    <!--</div>-->
 
     </div>
   </body>

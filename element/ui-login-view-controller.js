@@ -7,14 +7,14 @@ const uiLoginTemplate = uiLoginDoc.ownerDocument.querySelector('#ui-login-view')
 class UILoginViewController extends HTMLElement{
 
   static get observedAttributes() {
-    return ["action", "method", "registration", "password-reset", "csrf", "error"];
+    return ["logo", "action", "password-reset", "csrf", "error"];
   }
 
   constructor(){
     super();
+    this._logo = null;
     this._action = null;
     this._method = null;
-    this._registration = null;
     this._passwordReset = null;
     this._error = null;
     this._csrf = null;
@@ -25,12 +25,11 @@ class UILoginViewController extends HTMLElement{
  }
 
   connectedCallback() {
-    //console.log('connected');
-    this.$form = this.shadowRoot.querySelector('#form');
-    this.$csrf = this.shadowRoot.querySelector('#csrf');
-    this.$registration = this.shadowRoot.querySelector('#registration');
     this.$passwordReset = this.shadowRoot.querySelector('#passwordReset');
     this.$error = this.shadowRoot.querySelector('#error');
+    this.$form = this.shadowRoot.querySelector('#form');
+    this.$logo = this.shadowRoot.querySelector('#logo');
+    this.$csrf = this.shadowRoot.querySelector('#csrf');
 
     this.addEvents();
     this._updateRendering();
@@ -40,28 +39,51 @@ class UILoginViewController extends HTMLElement{
   set shadowRoot(value){ this._shadowRoot = value; }
 
   adoptedCallback(){
-    //console.log('adoptedCallback');
+		console.log('adoptedCallback');
   }
 
 
   attributeChangedCallback(attributeName, oldValue, newValue) {
-    //console.log('attributeChanged', name, oldValue, newValue);
     switch(attributeName){
-      case "password-reset":
-        this['passwordReset'] = newValue;
+      case "logo":
+				if(newValue !== oldValue) {
+					this.logo = newValue;
+					this.setAttribute('logo', newValue);
+				}
         break;
-
+      case "action":
+        this.action = newValue;
+        break;
+      case "csrf":
+        this.csrf = newValue;
+        break;
+      case "password-reset":
+        this.passwordReset = newValue;
+        break;
+			case "error":
+				this.error = newValue;
+        break;
       default:
-        this[attributeName] = newValue;
+				console.error('ATTRIBUTE NOT HANDLED', attributeName)
     }
     this._updateRendering();
   }
 
   disconnectedCallback() {
-    //console.log('disconnected');
+		console.log('disconnected');
   }
 
   _updateRendering(){
+
+		//LOGO
+		if(this.$logo && this.logo){
+      this.$logo.src = this.logo
+			this.$logo.style.display = 'block';
+    } else if(this.$logo && (!this.logo || this.logo === "")){
+			this.$logo.style.display = 'none';
+		}
+
+
     if(this.$form){
       this.$form.action = this.action
     }
@@ -73,58 +95,44 @@ class UILoginViewController extends HTMLElement{
       this.$error.style.visibility = 'visible';
       this.$error.classList.add('attention-animation');
     }
-    if(this.$registration){
-      this.$registration.href = this.registration;
-    }
     if(this.$passwordReset){
       this.$passwordReset.href = this.passwordReset;
     }
-    if(this.$registration){
-      this.$form.action = this.action
-      this.$form.method = this.method;
-    }
   }
+
+  get logo(){ return this._logo; }
+  set logo(value){
+		this._logo = value;
+		this._updateRendering();
+  }
+
 
   get action(){ return this._action; }
   set action(value){
     if(this._action === value) return;
     this._action = value;
-    this.setAttribute('action', value);
+		this._updateRendering();
   }
 
   get csrf(){ return this._csrf; }
   set csrf(value){
     if(this._csrf === value) return;
     this._csrf = value;
-    this.setAttribute('csrf', value);
+		this._updateRendering();
   }
 
   get error(){ return this._error; }
   set error(value){
     if(this._error === value) return;
     this._error = value;
-    this.setAttribute('error', value);
-  }
-
-  get method(){ return this._method; }
-  set method(value){
-    if(this._method === value) return;
-    this._method = value;
-    this.setAttribute('method', value);
-  }
-
-  get registration(){ return this._registration; }
-  set registration(value){
-    if(this._registration === value) return;
-    this._registration = value;
-    this.setAttribute('registration', value);
+		this._updateRendering();
   }
 
   get passwordReset(){ return this._passwordReset; }
   set passwordReset(value){
     if(this._passwordReset === value) return;
     this._passwordReset = value;
-    this.setAttribute('password-reset', value);
+		this._updateRendering();
   }
 
   addEvents(){
@@ -133,7 +141,7 @@ class UILoginViewController extends HTMLElement{
 
   removeEvents(){
     //REMOVE
-    //this.$form.addEventListener('submit', this.submit);
+		this.$form.addEventListener('submit', this.submit);
   }
 }
 
