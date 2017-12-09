@@ -25,7 +25,7 @@ node 8.9.3-LTS
     // At this point we are guaranteed that all required polyfills have loaded,
     // all HTML imports have loaded, and all defined custom elements have upgraded
     let element = document.querySelector('ui-login');
-    console.assert(element instanceof MyElement);  // 👍
+    console.assert(element instanceof UILogin);  // 👍
     element.someAPI(); // 👍
   });
 </script>
