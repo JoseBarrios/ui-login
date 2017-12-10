@@ -1,6 +1,6 @@
 {
   "name": "ui-login",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "A custom login element",
   "main": "index.js",
   "scripts": {
