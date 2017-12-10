@@ -1,18 +1,18 @@
 
 <template id="ui-login-view">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <style>
-    :host {
+	<style>
+		:host {
 			--ui-login-font-family: 'Roboto', sans-serif;
 			--ui-login-container-bg-color: #fff;
 
 			--ui-login-input-bg-color: #fff;
 			--ui-login-input-border-color: darkGray;
 
-			--ui-login-button-bg-color: #409ad7;
-			--ui-login-button-border-color: #409ad7;
-			--ui-login-button-bg-color-hover: #409ad7;
-			--ui-login-button-border-color-hover: #409ad7;
+			--ui-login-button-bg-color: #87c0fb;
+			--ui-login-button-border-color: #87c0fb;
+			--ui-login-button-bg-color-hover: #87c0fb;
+			--ui-login-button-border-color-hover: #87c0fb;
 			--ui-login-button-text-color: #fff;
 
 			--ui-login-text-color: #757575;
@@ -23,122 +23,121 @@
 			display: none;
 		}
 
-    .container{
-      background-color: var(--ui-login-container-bg-color);
-      position: absolute;
-			width:100%;
-			height:100%;
+		.container {
+			background-color: var(--ui-login-container-bg-color);
 			min-width:300px;
 			min-height:300px;
+			width:100%;
+			height:100%;
 
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			flex-direction: column;
-    }
+		}
 
 		.image-container {
 		}
 
 		.form-container {
-      margin-top: 1em;
+			margin-top: 1em;
 		}
 
-    .login-logo {
-      display:none;
-      margin:auto;
-      height:75px;
-    }
+		.login-logo {
+			display:none;
+			margin:auto;
+			height:75px;
+		}
 
-    .login-email {
+		.login-email {
 			display:block;
 			margin-left:auto;
 			margin-right:auto;
 			font-size:1em;
 			padding:1em;
-      margin-bottom: -1px;
-      background-color: var(--ui-login-input-bg-color);
-      //color:var(--ui-login-text-color);
+			margin-bottom: -1px;
+			background-color: var(--ui-login-input-bg-color);
+			//color:var(--ui-login-text-color);
 			border:1px solid #a9a9a9;
 			border-radius:5px 5px 0px 0px;
 			width:210px;
-    }
+		}
 
-    .login-password {
+		.login-password {
 			display:block;
 			margin-left:auto;
 			margin-right:auto;
 			margin-bottom:1.5em;
 			font-size:1em;
 			padding:1em;
-      background-color: var(--ui-login-input-bg-color);
-      //color:var(--ui-login-text-color);
+			background-color: var(--ui-login-input-bg-color);
+			//color:var(--ui-login-text-color);
 			border:1px solid #a9a9a9;
 			border-radius:0px 0px 5px 5px;
 			width:210px;
-    }
+		}
 
-    .login-button{
+		.login-button{
 			display:block;
 			margin-top:1.25em;
 			margin-left:auto;
 			margin-right:auto;
-      background-color: var(--ui-login-button-bg-color);
-      text-transform: uppercase;
-      border:1px var(--ui-login-button-border-color) solid;
-      color: var(--ui-login-button-text-color);
+			background-color: var(--ui-login-button-bg-color);
+			text-transform: uppercase;
+			border:1px var(--ui-login-button-border-color) solid;
+			color: var(--ui-login-button-text-color);
 			line-height:2.5em;
 			width:250px;
 			border-radius:6px;
 			font-size:1.1em;
-      cursor:pointer;
-    }
+			cursor:pointer;
+		}
 
 		.login-button:hover {
 			background-color: var(--ui-login-button-bg-color-hover);
 			border-color: var(--ui-login-button-border-color-hover);
 		}
 
-    #error {
-      font-size:0.8em;
-      color: var(--ui-login-text-error-color);
-      font-weight:800;
-      visibility: hidden;
-      margin-top:30px;;
-    }
+		#error {
+			font-size:0.8em;
+			color: var(--ui-login-text-error-color);
+			font-weight:800;
+			visibility: hidden;
+			margin-top:30px;;
+		}
 
-    .attention-animation {
-      visibility: visible;
-      animation: attention 300ms linear both;
-      animation-iteration-count: 2;
-    }
+		.attention-animation {
+			visibility: visible;
+			animation: attention 300ms linear both;
+			animation-iteration-count: 2;
+		}
 
-    @keyframes attention {
-      0.00% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1); }
-      11.11% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.725, 0, 1, 1); }
-      22.22% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 10.113, 0, 1, 1); }
-      33.33% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 12, 0, 2, 1); }
-      44.44% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 4.08, 0, 2, 1); }
-      55.56% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -3.84, 0, 2, 1); }
-      66.67% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -12, 0, 3, 1); }
-      77.78% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -10.275, 0, 3, 1); }
-      88.89% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.887, 0, 3, 1); }
-      100.00% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 3, 1); }
-    }
+		@keyframes attention {
+			0.00% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1); }
+			11.11% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.725, 0, 1, 1); }
+			22.22% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 10.113, 0, 1, 1); }
+			33.33% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 12, 0, 2, 1); }
+			44.44% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 4.08, 0, 2, 1); }
+			55.56% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -3.84, 0, 2, 1); }
+			66.67% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -12, 0, 3, 1); }
+			77.78% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -10.275, 0, 3, 1); }
+			88.89% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.887, 0, 3, 1); }
+			100.00% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 3, 1); }
+		}
 
-  </style>
+	</style>
 
 
-  <div class="container">
+	<div class="container">
 
 		<div class="image-container">
 			<img id="logo" class="login-logo" alt="logo" src=""/>
 		</div>
 
-    <div class="form-container">
-      <form id="form" method="POST" action="">
-        <input id="email" type="email" name="email" class="login-email" placeholder="email@email.com" required>
-        <input id="password" type="password" name="password" class="login-password" placeholder="••••••••" minlength="8" required>
+		<div class="form-container">
+			<form id="form" method="POST" action="">
+				<input id="email" type="email" name="email" class="login-email" placeholder="email@email.com" required>
+				<input id="password" type="password" name="password" class="login-password" placeholder="••••••••" minlength="8" required>
 				<input id="csrf" type="hidden" name="_csrf" class="form-control" value="">
 				<button id="loginButton" type="submit" class="login-button">
 					<span id="loginButtonText">Login</span>
@@ -146,7 +145,8 @@
 				<p id="error"></p>
 			</form>
 		</div>
-  </div>
+
+	</div>
 
 </template>
 
