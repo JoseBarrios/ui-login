@@ -31,8 +31,8 @@
 			/* Makes sure we're not covering the border */
 			margin-left:1px;
 			margin-top:1px;
-			width: calc(100% - 2px);
-			height:calc(100% - 2px);
+			width: calc(100% - 1px);
+			height:calc(100% - 1px);
 
 			display: flex;
 			justify-content: center;
@@ -103,6 +103,11 @@
 			border-color: var(--ui-login-button-border-color-hover);
 		}
 
+
+		.error-container {
+			height:2em;
+			line-height:1em;
+		}
 		#error {
 			font-family: var(--ui-login-font-family);
 			text-align:center;
@@ -110,7 +115,6 @@
 			font-size:0.8em;
 			color: var(--ui-login-text-error-color);
 			font-weight:800;
-			line-height:2em;
 		}
 
 		.attention-animation {
@@ -149,10 +153,11 @@
 				<button id="loginButton" type="submit" class="login-button">
 					<span id="loginButtonText">Login</span>
 				</button>
-				<p id="error"></p>
 			</form>
+			<div class="error-container">
+				<p id="error"></p>
+			</div>
 		</div>
-
 	</div>
 
 </template>
