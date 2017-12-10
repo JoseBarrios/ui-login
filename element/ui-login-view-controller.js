@@ -25,6 +25,7 @@ class UILoginViewController extends HTMLElement{
  }
 
   connectedCallback() {
+		this.$loginButtonText = this.shadowRoot.querySelector('#loginButtonText');
 		this.$passwordReset = this.shadowRoot.querySelector('#passwordReset');
 		this.$error = this.shadowRoot.querySelector('#error');
 		this.$form = this.shadowRoot.querySelector('#form');
@@ -87,14 +88,17 @@ class UILoginViewController extends HTMLElement{
     if(this.$form){
       this.$form.action = this.action
     }
+
     if(this.$csrf){
       this.$csrf.value = this.csrf
     }
+
     if(this.$error){
       this.$error.innerHTML = this.error;
       this.$error.style.visibility = 'visible';
       this.$error.classList.add('attention-animation');
     }
+
     if(this.$passwordReset){
       this.$passwordReset.href = this.passwordReset;
     }
@@ -105,7 +109,6 @@ class UILoginViewController extends HTMLElement{
 		this._logo = value;
 		this._updateRendering();
   }
-
 
   get action(){ return this._action; }
   set action(value){
@@ -136,13 +139,20 @@ class UILoginViewController extends HTMLElement{
   }
 
   addEvents(){
-    this.$form.addEventListener('submit', this.submit);
+    this.$form.addEventListener('submit', this.submit.bind(this));
   }
 
-  removeEvents(){
+ 	submit(e){
+		this.$loginButtonText.innerHTML = '';
+		this.$loginButtonText.classList.add('fa', 'fa-spinner', 'fa-spin');
+	}
+
+	removeEvents(){
     //REMOVE
-		this.$form.addEventListener('submit', this.submit);
+		this.$form.addEventListener('submit', this.submit.bind(this));
   }
+
+
 }
 
 

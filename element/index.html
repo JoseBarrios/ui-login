@@ -1,5 +1,6 @@
-<template id="ui-login-view">
 
+<template id="ui-login-view">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <style>
     :host {
 			--ui-login-font-family: 'Roboto', sans-serif;
@@ -155,7 +156,9 @@
         <input type="email" name="email" class="login-email" placeholder="email@email.com" required autofocus>
         <input type="password" name="password" class="login-password" placeholder="•••••••••••••" required>
 				<input id="csrf" type="hidden" name="_csrf" class="form-control" value="">
-        <button id="loginButton" type="submit" class="login-button">Login</button>
+				<button id="loginButton" type="submit" class="login-button">
+					<span id="loginButtonText">Login</span>
+				</button>
         <p class="footer">
           <a id="passwordReset" class="password-reset"> forgot password? </a>
         </p>
