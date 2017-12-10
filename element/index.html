@@ -5,7 +5,6 @@
     :host {
 			--ui-login-font-family: 'Roboto', sans-serif;
 			--ui-login-container-bg-color: #fff;
-			--ui-login-container-border-color: gray;
 
 			--ui-login-input-bg-color: #fff;
 			--ui-login-input-border-color: darkGray;
@@ -14,7 +13,6 @@
 			--ui-login-button-border-color: #409ad7;
 			--ui-login-button-bg-color-hover: #409ad7;
 			--ui-login-button-border-color-hover: #409ad7;
-
 			--ui-login-button-text-color: #fff;
 
 			--ui-login-text-color: #757575;
@@ -27,9 +25,7 @@
 
     .container{
       background-color: var(--ui-login-container-bg-color);
-      border:1px var(--ui-login-container-border-color) solid;
 			font-family: var(--ui-login-font-family) !important;
-      border-radius: 10px;
       position: relative;
       bottom: 0;
       right: 0;
@@ -94,7 +90,6 @@
       background-color: var(--ui-login-button-bg-color);
       text-transform: uppercase;
       border:1px var(--ui-login-button-border-color) solid;
-      margin-bottom:15px;
       color: var(--ui-login-button-text-color);
 			line-height:2.5em;
 			width:250px;
@@ -140,21 +135,19 @@
 
   <div class="container">
 		<div class="image-container">
-			<img id="logo" class="login-logo"/>
+			<img id="logo" class="login-logo" alt="logo" src=""/>
 		</div>
     <div class="form-container">
-      <form id="form" method="POST">
+      <form id="form" method="POST" action="">
         <input id="email" type="email" name="email" class="login-email" placeholder="email@email.com" required>
         <input id="password" type="password" name="password" class="login-password" placeholder="••••••••" minlength="8" required>
 				<input id="csrf" type="hidden" name="_csrf" class="form-control" value="">
 				<button id="loginButton" type="submit" class="login-button">
 					<span id="loginButtonText">Login</span>
 				</button>
-        <p class="footer">
-					<p id="error"/>
-        </p>
-      </div>
-    </form>
+				<p id="error"></p>
+			</form>
+		</div>
   </div>
 
 </template>

@@ -11,23 +11,21 @@
       ui-login {
 				--ui-login-font-family: 'Roboto', sans-serif;
 				--ui-login-container-bg-color: #fff;
-				--ui-login-container-border-color: gray;
 
 				--ui-login-input-bg-color: #fff;
 				--ui-login-input-border-color: darkGray;
 
 				--ui-login-button-bg-color: #ff9933;
 				--ui-login-button-border-color: #ff9933;
-
 				--ui-login-button-bg-color-hover: #409ad7;
 				--ui-login-button-border-color-hover: #409ad7;
-
 				--ui-login-button-text-color: #fff;
 
 				--ui-login-text-color: #757575;
+				--ui-login-text-error-color: #CD5C5C;
+
 				--ui-login-link-color: #757575;
 				--ui-login-link-hover-color: #409ad7;
-				--ui-login-text-error-color: #CD5C5C;
       }
     </style>
 
@@ -35,7 +33,8 @@
 
   <body style="padding:0px; margin:0px; background-color:lightGray">
     <div style="margin-top:25vh;width:100%;height:50%;position:fixed;z-index:1">
-      <ui-login email="jose@barrios.io" logo="https://cdn.filestackcontent.com/UHsEqdTSo6RNaLcObgnA" action="http://localhost:3000/user/login" password-reset="/user/password-reset" csrf="BqZBSOdc-wEPZzFfsT_Ey7s3fr7nG2ZUYMJQ" error=""></ui-login>
+      <!--<ui-login email="jose@barrios.io" logo="https://cdn.filestackcontent.com/UHsEqdTSo6RNaLcObgnA" action="http://localhost:3000/user/login" password-reset="/user/password-reset" csrf="BqZBSOdc-wEPZzFfsT_Ey7s3fr7nG2ZUYMJQ" error=""></ui-login>-->
+      <ui-login email="jose@barrios.io" action="http://localhost:3000/user/login" password-reset="/user/password-reset" csrf="BqZBSOdc-wEPZzFfsT_Ey7s3fr7nG2ZUYMJQ" error=""></ui-login>
     </div>
 
     </div>
