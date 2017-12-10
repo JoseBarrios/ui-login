@@ -7,17 +7,14 @@ let uiLoginTemplate = uiLoginDoc.ownerDocument.querySelector('#ui-login-view');
 class UILoginViewController extends HTMLElement{
 
   static get observedAttributes() {
-    return ["logo", "action", "password-reset", "csrf", "error"];
+    return ["logo", "email", "action", "csrf", "error"];
   }
 
   constructor(){
     super();
-    this._logo = null;
-    this._action = null;
-    this._method = null;
-    this._passwordReset = null;
-    this._error = null;
-    this._csrf = null;
+		this.event = {};
+		this.state = {};
+		this.model = {};
 
 		const view = document.importNode(uiLoginTemplate.content, true);
 		this.shadowRoot = this.attachShadow({mode: 'open'});
@@ -26,14 +23,15 @@ class UILoginViewController extends HTMLElement{
 
   connectedCallback() {
 		this.$loginButtonText = this.shadowRoot.querySelector('#loginButtonText');
-		this.$passwordReset = this.shadowRoot.querySelector('#passwordReset');
 		this.$error = this.shadowRoot.querySelector('#error');
 		this.$form = this.shadowRoot.querySelector('#form');
+		this.$email = this.shadowRoot.querySelector('#email');
+		this.$password = this.shadowRoot.querySelector('#password');
 		this.$logo = this.shadowRoot.querySelector('#logo');
 		this.$csrf = this.shadowRoot.querySelector('#csrf');
 
     this.addEvents();
-    this._updateRendering();
+    this.updateView();
   }
 
   get shadowRoot(){ return this._shadowRoot; }
@@ -43,99 +41,153 @@ class UILoginViewController extends HTMLElement{
 		console.log('adoptedCallback');
   }
 
-
   attributeChangedCallback(attributeName, oldValue, newValue) {
     switch(attributeName){
       case "logo":
-				if(newValue !== oldValue) {
-					this.logo = newValue;
-					this.setAttribute('logo', newValue);
-				}
+				if(newValue !== this.logo) { this.logo = newValue; }
+        break;
+			case "email":
+				if(newValue !== this.email) { this.email = newValue; }
         break;
       case "action":
-        this.action = newValue;
+				if(newValue !== this.action) { this.action = newValue; }
         break;
       case "csrf":
-        this.csrf = newValue;
-        break;
-      case "password-reset":
-        this.passwordReset = newValue;
+				if(newValue !== this.csrf) { this.csrf = newValue; }
         break;
 			case "error":
-				this.error = newValue;
+				if(newValue !== this.error) { this.error = newValue; }
         break;
       default:
 				console.error('ATTRIBUTE NOT HANDLED', attributeName)
     }
-    this._updateRendering();
   }
 
-  disconnectedCallback() {
-		console.log('disconnected');
+  get logo(){ return this.model.logo; }
+  set logo(value){
+		if(this.getAttribute('logo') !== value){
+			this.setAttribute('logo', value);
+			return
+		}
+		this.model.logo = value;
+		this.updateView(this.$logo);
   }
 
-  _updateRendering(){
+  get email(){ return this.model.email; }
+  set email(value){
+		if(this.getAttribute('email') !== value){
+			this.setAttribute('email', value);
+			return
+		}
+    this.model.email = value;
+		this.updateView(this.$email);
+  }
 
-		//LOGO
+
+  get action(){ return this.model.action; }
+  set action(value){
+		if(this.getAttribute('action') !== value){
+			this.setAttribute('action', value);
+			return
+		}
+    this.model.action = value;
+		this.updateView(this.$form);
+  }
+
+  get csrf(){ return this.model.csrf; }
+  set csrf(value){
+		if(this.getAttribute('csrf') !== value){
+			this.setAttribute('csrf', value);
+			return
+		}
+    this.model.csrf = value;
+		this.updateView(this.$csrf);
+  }
+
+  get error(){ return this.model.error; }
+  set error(value){
+		if(this.getAttribute('error') !== value){
+			this.setAttribute('error', value);
+			return
+		}
+    this.model.error = value;
+		this.updateView(this.$error);
+  }
+
+	_updateLogoView(){
 		if(this.$logo && this.logo){
       this.$logo.src = this.logo
 			this.$logo.style.display = 'block';
     } else if(this.$logo && (!this.logo || this.logo === "")){
 			this.$logo.style.display = 'none';
 		}
+	}
 
+	_updateFormView(){
+		if(this.$form && this.action){
+			this.$form.action = this.action
+		}
+	}
 
-    if(this.$form){
-      this.$form.action = this.action
-    }
-
-    if(this.$csrf){
+	_updateCSRFView(){
+		if(this.$csrf && this.csrf){
       this.$csrf.value = this.csrf
     }
+	}
 
-    if(this.$error){
+	_updateEmailView(){
+		if(this.$email && this.email){
+      this.$email.value = this.email;
+    }
+	}
+
+	_updateErrorView(){
+		if(this.$error && this.error){
       this.$error.innerHTML = this.error;
       this.$error.style.visibility = 'visible';
       this.$error.classList.add('attention-animation');
+			let animationTimeout = setTimeout(() => {
+      	this.$error.classList.remove('attention-animation');
+				clearTimeout(animationTimeout);
+			}, 600)
     }
+		else {
+      this.$error.style.visibility = 'hidden';
+			this.$error.classList.remove('attention-animation');
+		}
+	}
 
-    if(this.$passwordReset){
-      this.$passwordReset.href = this.passwordReset;
-    }
-  }
 
-  get logo(){ return this._logo; }
-  set logo(value){
-		this._logo = value;
-		this._updateRendering();
-  }
 
-  get action(){ return this._action; }
-  set action(value){
-    if(this._action === value) return;
-    this._action = value;
-		this._updateRendering();
-  }
+  updateView(view){
+		switch(view){
+			case this.$logo:
+				this._updateLogoView();
+				break;
+			case this.$form:
+				this._updateFormView();
+				break;
+			case this.$csrf:
+				this._updateCSRFView();
+				break;
+			case this.$email:
+				this._updateEmailView();
+				break;
+			case this.$error:
+				this._updateErrorView();
+				break;
+			default:
+				//Everything
+				this._updateLogoView();
+				this._updateFormView();
+				this._updateCSRFView();
+				this._updateEmailView();
+				this._updateErrorView();
 
-  get csrf(){ return this._csrf; }
-  set csrf(value){
-    if(this._csrf === value) return;
-    this._csrf = value;
-		this._updateRendering();
-  }
-
-  get error(){ return this._error; }
-  set error(value){
-    if(this._error === value) return;
-    this._error = value;
-		this._updateRendering();
-  }
-
-  get passwordReset(){ return this._passwordReset; }
-  set passwordReset(value){
-    if(this._passwordReset === value) return;
-    this._passwordReset = value;
-		this._updateRendering();
+				//Set focus on correct item
+				if(this.$email.value){ this.$password.focus()}
+				else { this.$email.focus() }
+		}
   }
 
   addEvents(){
@@ -151,8 +203,9 @@ class UILoginViewController extends HTMLElement{
     //REMOVE
 		this.$form.addEventListener('submit', this.submit.bind(this));
   }
-
-
+  disconnectedCallback() {
+		console.log('disconnected');
+  }
 }
 
 

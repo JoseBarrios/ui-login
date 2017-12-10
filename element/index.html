@@ -23,6 +23,10 @@
 			--ui-login-text-error-color: #CD5C5C;
 		}
 
+		:host([hidden]) {
+			display: none;
+		}
+
     .container{
       background-color: var(--ui-login-container-bg-color);
       border:1px var(--ui-login-container-border-color) solid;
@@ -76,7 +80,7 @@
 			padding:1em;
       margin-bottom: -1px;
       background-color: var(--ui-login-input-bg-color);
-      color:var(--ui-login-text-color);
+      //color:var(--ui-login-text-color);
 			border:1px solid #a9a9a9;
 			border-radius:5px 5px 0px 0px;
 			width:210px;
@@ -89,7 +93,7 @@
 			font-size:1em;
 			padding:1em;
       background-color: var(--ui-login-input-bg-color);
-      color:var(--ui-login-text-color);
+      //color:var(--ui-login-text-color);
 			border:1px solid #a9a9a9;
 			border-radius:0px 0px 5px 5px;
 			width:210px;
@@ -153,16 +157,15 @@
 		</div>
     <div class="form-container">
       <form id="form" method="POST">
-        <input type="email" name="email" class="login-email" placeholder="email@email.com" required autofocus>
-        <input type="password" name="password" class="login-password" placeholder="•••••••••••••" required>
+        <input id="email" type="email" name="email" class="login-email" placeholder="email@email.com" required>
+        <input id="password" type="password" name="password" class="login-password" placeholder="••••••••" minlength="8" required>
 				<input id="csrf" type="hidden" name="_csrf" class="form-control" value="">
 				<button id="loginButton" type="submit" class="login-button">
 					<span id="loginButtonText">Login</span>
 				</button>
         <p class="footer">
-          <a id="passwordReset" class="password-reset"> forgot password? </a>
+					<p id="error"/>
         </p>
-        <p id="error"/>
       </div>
     </form>
   </div>
