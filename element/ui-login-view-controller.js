@@ -110,6 +110,7 @@ class UILoginViewController extends HTMLElement{
 			this.setAttribute('error', value);
 			return
 		}
+
     this.model.error = value;
 		this.updateView(this.$error);
   }
@@ -142,9 +143,9 @@ class UILoginViewController extends HTMLElement{
 	}
 
 	_updateErrorView(){
-		if(this.$error && this.error){
+		if(this.$error && this.error && this.error !== ''){
       this.$error.innerHTML = this.error;
-      this.$error.style.visibility = 'visible';
+			this.$error.style.visibility = 'visible';
       this.$error.classList.add('attention-animation');
 			let animationTimeout = setTimeout(() => {
       	this.$error.classList.remove('attention-animation');
@@ -152,8 +153,8 @@ class UILoginViewController extends HTMLElement{
 			}, 600)
     }
 		else {
-      this.$error.style.visibility = 'hidden';
 			this.$error.classList.remove('attention-animation');
+			this.$error.style.visibility = 'hidden';
 		}
 	}
 
