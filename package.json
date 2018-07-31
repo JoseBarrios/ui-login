@@ -4,8 +4,8 @@
   "description": "A custom login element",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/yarn/bin/yarn upgrade; ./node_modules/webpack/bin/webpack.js",
-    "test": "./node_modules/http-server/bin/http-server"
+    "build": "./node_modules/webpack/bin/webpack.js",
+    "test": "./node_modules/http-server/bin/http-server -o -c-1"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/JoseBarrios/ui-login#readme",
   "devDependencies": {
-    "http-server": "^0.10.0",
-    "mocha": "^3.4.2"
+    "http-server": "^0.11.1",
+    "mocha": "^5.2.0"
   }
 }

@@ -1,50 +1,49 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.20/webcomponents-loader.js"></script>
-    <link rel='import', href='../element/index.html'>
+    <head>
+        <script src="../vendors/webcomponents/webcomponents-loader.js"></script>
+        <link rel="stylesheet" href="../vendors/fontawesome/css/all.css">
+        <link rel='import', href='../element/index.html'>
 
-		<!--FOR FIREFOX, YOU HAVE TO RE-ADD THE VARIABLES IN THE PARENT DOCUMENT-->
-    <style>
-      ui-login {
-				--ui-login-font-family: 'Roboto', sans-serif;
-				--ui-login-container-bg-color: #fff;
+        <!--FOR FIREFOX, YOU HAVE TO RE-ADD THE VARIABLES IN THE PARENT DOCUMENT-->
+        <style>
+            ui-login {
+                --ui-login-font-family: 'Roboto', sans-serif;
+                --ui-login-container-bg-color: #fff;
 
-				--ui-login-input-bg-color: #fff;
-				--ui-login-input-border-color: darkGray;
+                --ui-login-input-bg-color: #fff;
+                --ui-login-input-border-color: darkGray;
 
-				--ui-login-button-bg-color: #87c0fb;
-				--ui-login-button-border-color: #87c0fb;
-				--ui-login-button-bg-color-hover: #87c0fb;
-				--ui-login-button-border-color-hover: #87c0fb;
-				--ui-login-button-text-color: #fff;
+                --ui-login-button-bg-color: #87c0fb;
+                --ui-login-button-border-color: #87c0fb;
+                --ui-login-button-bg-color-hover: #87c0fb;
+                --ui-login-button-border-color-hover: #87c0fb;
+                --ui-login-button-text-color: #fff;
 
-				--ui-login-text-color: #757575;
-				--ui-login-text-error-color: #CD5C5C;
+                --ui-login-text-color: #757575;
+                --ui-login-text-error-color: #CD5C5C;
 
-      }
-    </style>
+            }
+        </style>
 
-  </head>
+    </head>
 
-  <body style="padding:0px; margin:0px; background-color:lightGray">
-    <div style="margin-left:auto;margin-right:auto;margin-top:20%;width:60%;border:1px solid gray;">
-			<!--<ui-login email="jose@barrios.io" logo="https://cdn.filestackcontent.com/RcFDirxyRFyypyEdEHYe" action="http://localhost:3000/user/login" csrf="xxx" error="xx"></ui-login>-->
-			<ui-login email="jose@barrios.io" logo="https://cdn.filestackcontent.com/RcFDirxyRFyypyEdEHYe" action="http://localhost:3000/user/login" csrf="xxx" ></ui-login>
-    </div>
-  </body>
+    <body style="padding:0px; margin:0px; background-color:lightGray">
+        <div style="margin-left:auto;margin-right:auto;margin-top:20%;width:60%;border:1px solid gray;">
+            <ui-login email="jose@barrios.io" logo="https://cdn.filestackcontent.com/RcFDirxyRFyypyEdEHYe" action="http://localhost:3000" csrf="xxx" ></ui-login>
+        </div>
+    </body>
 
-	<!-- Interact with the upgraded element -->
-	<script>
-		window.addEventListener('WebComponentsReady', function() {
-			// At this point we are guaranteed that all required polyfills have loaded,
-			// all HTML imports have loaded, and all defined custom elements have upgraded
-			let element = document.querySelector('ui-login');
-			console.assert(element instanceof UILoginViewController);
-			//element.error = "This is an error message";
-		});
-	</script>
+    <!-- Interact with the upgraded element -->
+    <script>
+        window.addEventListener('WebComponentsReady', function() {
+            // At this point we are guaranteed that all required polyfills have loaded,
+            // all HTML imports have loaded, and all defined custom elements have upgraded
+            let element = document.querySelector('ui-login');
+            console.assert(element instanceof UILoginViewController);
+            //element.error = "This is an error message";
+        });
+    </script>
 
 </html>
