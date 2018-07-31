@@ -197,6 +197,7 @@ class UILoginViewController extends HTMLElement{
         this.$loginButtonText.classList.add('fal');
         this.$loginButtonText.classList.add('fa-spin');
         this.$loginButtonText.classList.add('fa-spinner-third');
+        e.preventDefault();
     }
 
     removeEvents(){
