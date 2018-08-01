@@ -2,30 +2,7 @@
 <html>
 
     <head>
-        <script src="../vendors/webcomponents/webcomponents-loader.js"></script>
-        <link rel='import', href='../element/index.html'>
-
-        <!--FOR FIREFOX, YOU HAVE TO RE-ADD THE VARIABLES IN THE PARENT DOCUMENT-->
-        <style>
-            ui-login {
-                --ui-login-font-family: 'Roboto', sans-serif;
-                --ui-login-container-bg-color: #fff;
-
-                --ui-login-input-bg-color: #fff;
-                --ui-login-input-border-color: darkGray;
-
-                --ui-login-button-bg-color: #87c0fb;
-                --ui-login-button-border-color: #87c0fb;
-                --ui-login-button-bg-color-hover: #87c0fb;
-                --ui-login-button-border-color-hover: #87c0fb;
-                --ui-login-button-text-color: #fff;
-
-                --ui-login-text-color: #757575;
-                --ui-login-text-error-color: #CD5C5C;
-
-            }
-        </style>
-
+        <link rel="import", href="../element/index.html">
     </head>
 
     <body style="padding:0px; margin:0px; background-color:lightGray">
@@ -34,15 +11,5 @@
         </div>
     </body>
 
-    <!-- Interact with the upgraded element -->
-    <script>
-        window.addEventListener('WebComponentsReady', function() {
-            // At this point we are guaranteed that all required polyfills have loaded,
-            // all HTML imports have loaded, and all defined custom elements have upgraded
-            let element = document.querySelector('ui-login');
-            console.assert(element instanceof UILoginViewController);
-            //element.error = "This is an error message";
-        });
-    </script>
-
+    <script src="../vendors/webcomponents/polyfill.js"></script>
 </html>
