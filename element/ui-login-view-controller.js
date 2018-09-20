@@ -17,7 +17,7 @@ class UILoginViewController extends HTMLElement{
         this.model = {};
 
         const view = document.importNode(uiLoginTemplate.content, true);
-        this.shadowRoot = this.attachShadow({mode: 'open'});
+        this.shadowRoot = this.attachShadow({mode: 'closed'});
         this.shadowRoot.appendChild(view);
     }
 
