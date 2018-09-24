@@ -70,6 +70,7 @@
             border:1px solid #a9a9a9;
             border-radius:5px 5px 0px 0px;
             width: calc(100% - 2em - 2px)
+            text-align:center;
         }
 
         .login-email:focus {
@@ -88,6 +89,7 @@
             border:1px solid #a9a9a9;
             border-radius:0px 0px 5px 5px;
             width: calc(100% - 2em - 2px)
+            text-align:center;
         }
 
         .login-password:focus {
@@ -157,7 +159,7 @@
             <form id="form" method="POST" action="">
                 <div class="input-container">
                     <input id="email" type="email" name="email" class="login-email" placeholder="email@email.com" required autocomplete>
-                    <input id="password" type="password" name="password" class="login-password" placeholder="••••••••" minlength="8" required autocomplete>
+                    <input id="password" type="password" name="password" class="login-password" placeholder="••••••••••••••••" minlength="8" required autocomplete>
                     <input id="csrf" type="hidden" name="_csrf" class="form-control" value="">
                 </div>
                 <button id="loginButton" type="submit" class="login-button">
