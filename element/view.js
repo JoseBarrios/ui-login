@@ -69,7 +69,7 @@ view.innerHTML = `
             /* color:var(--ui-login-text-color); */
             border:1px solid #a9a9a9;
             border-radius:5px 5px 0px 0px;
-            width: calc(100% - 2em - 2px)
+            width: calc(100% - 2em - 2px);
             text-align:center;
         }
 
@@ -88,7 +88,7 @@ view.innerHTML = `
             /* color:var(--ui-login-text-color); */
             border:1px solid #a9a9a9;
             border-radius:0px 0px 5px 5px;
-            width: calc(100% - 2em - 2px)
+            width: calc(100% - 2em - 2px);
             text-align:center;
         }
 
