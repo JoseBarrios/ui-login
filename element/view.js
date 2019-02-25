@@ -1,5 +1,5 @@
-<template id="ui-login-view">
-
+const view = document.createElement("template");
+view.innerHTML = `
     <link rel="stylesheet" href="../vendors/fontawesome/css/all.css">
 
     <style>
@@ -171,8 +171,7 @@
             </div>
         </div>
     </div>
+`;
 
-</template>
+export default view;
 
-<!-- CUSTOM ELEMENT CONTROLLER -->
-<script src="ui-login-view-controller.js" type="text/javascript"> </script>

@@ -1,11 +1,11 @@
 {
   "name": "ui-login",
-  "version": "0.4.1",
+  "version": "1.0.0",
   "description": "A custom login element",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/webpack/bin/webpack.js",
-    "test": "./node_modules/http-server/bin/http-server -o -c-1"
+    "test": "./node_modules/http-server/bin/http-server -o -c-1",
+    "start": "npm install; npm test"
   },
   "repository": {
     "type": "git",
@@ -13,10 +13,10 @@
   },
   "keywords": [
     "custom",
+    "login",
     "element",
     "class"
   ],
-  "browser": "browser.js",
   "author": "JoseBarrios",
   "license": "UNLICENSED",
   "bugs": {
@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/JoseBarrios/ui-login#readme",
   "devDependencies": {
-    "http-server": "^0.11.1",
-    "mocha": "^5.2.0"
+    "http-server": "^0.11.1"
   }
 }

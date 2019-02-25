@@ -1,8 +1,6 @@
 'use strict'
 
-//Firefox requires these to be outside of class
-let uiLoginDoc = document._currentScript || document.currentScript;
-let uiLoginTemplate = uiLoginDoc.ownerDocument.querySelector('#ui-login-view');
+import view from "./view.js"
 
 class UILoginViewController extends HTMLElement{
 
@@ -16,9 +14,8 @@ class UILoginViewController extends HTMLElement{
         this.state = {};
         this.model = {};
 
-        const view = document.importNode(uiLoginTemplate.content, true);
         this.shadowRoot = this.attachShadow({mode: 'closed'});
-        this.shadowRoot.appendChild(view);
+        this.shadowRoot.appendChild(view.content.cloneNode(true));
     }
 
     connectedCallback() {
